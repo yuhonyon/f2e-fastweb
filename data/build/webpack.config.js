@@ -10,7 +10,7 @@ const packageInfo = JSON.parse(fs.readFileSync('./package.json'));
 
 const plugins=[];
 let outputFile="fastweb";
-let outputDir="dist/"+packageInfo.name;
+let outputDir="dist/"+packageInfo.project;
 
 function resolve(dir) {
   return path.join(__dirname, dir);

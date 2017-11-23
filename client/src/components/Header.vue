@@ -54,9 +54,9 @@
           this.getEmsCode()
           this.emsShow=true;
         }else if(name==2){
-          this.umdShow=true;
+          this.commonShow=true;
         }else{
-          this.commonShow=3;
+          this.umdShow=3;
         }
 
       },

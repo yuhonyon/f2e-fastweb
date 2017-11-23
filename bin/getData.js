@@ -2,7 +2,7 @@ const fs = require('fs');
 const execSync = require('child_process').execSync;
 const lodash =require('lodash');
 const cmd=require('../utils/cmd');
-
+const _fs=require('../utils/fs');
 
 function getVersions(name) {
   try {
@@ -17,7 +17,12 @@ function getVersions(name) {
 }
 
 
-console.log(cmd("cd ./directory&&git pull origin master"));
+if(_fs.hasFile('./directory/directory.json')){
+  console.log(cmd("cd ./directory&&git pull origin master"));
+}else{
+  console.log(cmd("git clone http://fangyangyu@gitlab.91jkys.com/f2e/directory.git"));
+}
+
 const directory = JSON.parse(fs.readFileSync('directory/directory.json'));
 let data = JSON.parse(fs.readFileSync('data/data.json'));
 lodash.merge(data,directory);
@@ -34,10 +39,6 @@ for (let i in data) {
   data[i].versions=versions;
   console.log(`更新${data[i].name}中...`);
   console.log(cmd(`cnpm i ${data[i].name}@${data[i].versions[data[i].versions.length - 1]} -S`));
-  // if(data[i].common){
-  //   console.log(`更新${data[i].common}`);
-  //   console.log(cmd(`cnpm i ${data[i].common}@${data[i].versions[data[i].versions.length - 1]} -S`));
-  // }
   if(fs.existsSync(`node_modules/${data[i].name}/README.md`)){
     data[i].readme=fs.readFileSync(`node_modules/${data[i].name}/README.md`).toString();
   }
@@ -48,4 +49,3 @@ for (let i in data) {
 console.log(cmd("cd client&&cnpm i&&npm run "));
 
 console.log("******全部更新完成*****");
-// const packageInfo = JSON.parse(fs.readFileSync('package.json'));

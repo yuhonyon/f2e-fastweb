@@ -28,7 +28,7 @@ const Build={
     }
     index=index.replace(/,$/,'}');
     let _package={
-      "name": this.id,
+      "project": this.id,
       "scripts": {
         "start": "WEBPACK_ENV=build webpack"
       },
