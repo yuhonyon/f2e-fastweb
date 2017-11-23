@@ -1,0 +1,66 @@
+{
+  "name": "fastweb",
+  "version": "1.0.1",
+  "scripts": {
+    "start": "node bin/www",
+    "dev": "./node_modules/.bin/nodemon bin/www",
+    "prd": "pm2 start bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "travis-publish": "node node_modules/travis-release/"
+  },
+  "bin": {
+    "fastweb": "./bin/www",
+    "fastweb-update": "./bin/getData.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@fastweb/event": "^1.1.0",
+    "@fastweb/example": "^1.0.9",
+    "@fastweb/example_common": "^1.0.9",
+    "@fastweb/html-temp": "^1.1.1",
+    "@fastweb/html-temp_common": "^1.1.1",
+    "@fastweb/login": "^1.1.0",
+    "@fastweb/modal": "^1.2.2",
+    "@fastweb/modal_common": "^1.2.2",
+    "@fastweb/sailer-utils": "^1.1.0",
+    "@fastweb/sailer-utils_common": "^1.1.0",
+    "@fastweb/utils": "^1.0.2",
+    "@fastweb/utils_common": "^1.0.2",
+    "@fastweb/wechat-login": "^1.0.2",
+    "@fastweb/wechat-login_common": "^1.0.2",
+    "@fastweb/wechat-share": "^1.1.1",
+    "@fastweb/wechat-share_common": "^1.1.1",
+    "bluebird": "^3.5.0",
+    "commander": "^2.11.0",
+    "debug": "^2.6.3",
+    "ejs": "^2.5.7",
+    "highlight.js": "^9.12.0",
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^3.2.0",
+    "koa-convert": "^1.2.0",
+    "koa-cors": "^0.0.16",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^2.0.1",
+    "koa-onerror": "^1.2.1",
+    "koa-router": "^7.1.1",
+    "koa-session": "^5.5.0",
+    "koa-static": "^3.0.0",
+    "koa-validate": "^1.0.7",
+    "koa-views": "^5.2.1",
+    "koa-websocket": "^4.1.0",
+    "lodash": "^4.17.4",
+    "marked": "^0.3.6",
+    "mongoose": "^4.11.11",
+    "pug": "^2.0.0-rc.1",
+    "sass-loader": "^6.0.6",
+    "uuid": "^3.1.0",
+    "xss": "^0.3.4"
+  },
+  "devDependencies": {
+    "child_process": "^1.0.2",
+    "nodemon": "^1.8.1",
+    "travis-release": "^1.0.1"
+  }
+}

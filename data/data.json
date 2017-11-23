@@ -1,0 +1,101 @@
+{
+  "example": {
+    "name": "@fastweb/example",
+    "common": "@fastweb/example_common",
+    "versions": [
+      "1.0.2",
+      "1.0.3",
+      "1.0.5",
+      "1.0.6",
+      "1.0.7",
+      "1.0.8",
+      "1.0.9"
+    ],
+    "readme": "# 微信分享 [![Build Status](https://travis-ci.org/yuhonyon/wechatShare.svg?branch=master)](https://travis-ci.org/yuhonyon/wechatShare) [![npm](https://img.shields.io/npm/v/@fastweb/wechat-share.svg)](https://www.npmjs.com/package/@fastweb/wechat-share)\n"
+  },
+  "modal": {
+    "name": "@fastweb/modal",
+    "common": "@fastweb/modal_common",
+    "versions": [
+      "1.0.1",
+      "1.2.0",
+      "1.2.1",
+      "1.2.2"
+    ],
+    "readme": "# 弹框模态框 [![Build Status](https://travis-ci.org/yuhonyon/f2e-modal.svg?branch=master)](https://travis-ci.org/yuhonyon/f2e-modal) [![npm](https://img.shields.io/npm/v/@fastweb/modal.svg)](https://www.npmjs.com/package/@fastweb/modal)\n----\n>模态框,支持jq插件用法,全局用法,支持promise\n\n## 安装\n\nesm:\n```bash\ncnpm i @fastweb/modal -S\n```\ncommon:\n```bash\ncnpm i @fastweb/modal_common -S\n```\n\n##用法\n\n```js\nimport {Modal,ModalInstance,ModalJQuery} from '@fastweb/modal';\n//普通用法\nnew Modal(options);\n//全局方法\nModalInstance.alert('***');\nModalInstance.confirm('***');\nModalInstance.toast('***');\nModalInstance.prompt('***');\n//使用jq\nModalJQuery($);\n$.alert('***');\n$.confirm('***');\n$.toast('***');\n$.prompt('***');\n$(\"domId\").modal(options|\"show\"|\"hide\")\n```\n\n## options\n* backdrop: 默认true(true有遮罩且可以点击,false无遮罩,static有遮罩不可点击)\n* show: 默认false(默认显示)\n* time: 默认0(自动关闭的时间,为0不自动关闭)\n* type: 默认'defalut' (success,warning,info,danger)\n* width: null (宽)\n* height: null (高)\n* container: 默认document.body (弹框容器)\n* location: 默认'center' (弹框位置center,bottom,top)\n* content: null (弹框内容)\n* title: null (弹框标题)\n* icon: 'logo' (图标ok,error,warning,img.src)\n* btn: null (按钮 eg: {\"确定\":function(){...},\"取消\":function(){...}})\n* mold: ''//alert,confirm,toast\n* value:''(prompt的value)\n* animation: ['fadeIn', 'fadeOut'] (location为center,bottom,top下默认值分别为['fadeIn', 'fadeOut'],['slideInUp', 'slideOutDown'],['slideInDown', 'slideOutUp'])\n\n\n## 方法\n* show 显示\n* hide  隐藏\n# destroy  摧毁\n\n\n## 事件\n* onInit 初始化\n* onShow 显示\n* onClickBtn  点击按钮\n* onHide  隐藏\n# onDestroy  摧毁\n\n\n## jq参数\n* options 同上options\n* show  显示\n* hide 隐藏\n\n## 全局参数\n* alert(msg, title, cb)\n* confirm(msg, title, sucCb, errCb)\n* prompt(msg,value, title, sucCb, errCb)\n* toast(msg, time默认1000)\n\n**注:**\n+ msg,value必填,其他可选eg:`confirm(msg, cb)`\n+ sucCb, errCb回调可以使用promise代替eg:\n```js\n  confirm(\"你确定吗\").then(()=>{\n    console.log(\"确定\")\n  }).catch(()=>{\n    console.log(\"取消\")\n  })\n```\n"
+  },
+  "utils": {
+    "name": "@fastweb/utils",
+    "common": "@fastweb/utils_common",
+    "versions": [
+      "1.0.0",
+      "1.0.1",
+      "1.0.2"
+    ],
+    "readme": "# 常用utils [![Build Status](https://travis-ci.org/yuhonyon/f2e-utils.svg?branch=master)](https://travis-ci.org/yuhonyon/f2e-utils) [![npm](https://img.shields.io/npm/v/@fastweb/utils.svg)](https://www.npmjs.com/package/@fastweb/utils)\n----\n\n>常用utils方法:isEmpty,getCookie,setCookie,getQuery,parseQuery,parseDate,dbclick\n\n\n## 方法\n\n### isEmpty(obj)\n判断空对象 `obj=null|undefined|{}` 返回`true`\n\n### getCookie(key)\n获取cookie\n\n### setCookie(key, value, expires, path, domain)\n设置cookie\nkey    [key]\nvalue   [value]\nexpires [保留多少个小时]\npath    [路径]\ndomain  [域]\n\n\n### getQuery(key)\n获取url参数\n\n### parseQuery(url)\n讲url上的参数转为json  url默认为location.href\n\n### parseDate(date, fmt)\n格式化时间  fmt默认为\"YYYY-MM-DD hh:mm:ss\"\nY年M月D天H24制小时h12制小时m分s秒S毫秒\n\n### dbclick\n取消双击(触发ios浏览器双击窗口偏移bug时使用)\n"
+  },
+  "htmlTemp": {
+    "name": "@fastweb/html-temp",
+    "common": "@fastweb/html-temp_common",
+    "versions": [
+      "1.0.1",
+      "1.0.5",
+      "1.1.0",
+      "1.1.1"
+    ],
+    "readme": "# 模板引擎 [![Build Status](https://travis-ci.org/yuhonyon/f2e-htmlTemp.svg?branch=master)](https://travis-ci.org/yuhonyon/f2e-htmlTemp) [![npm](https://img.shields.io/npm/v/@fastweb/html-temp.svg)](https://www.npmjs.com/package/@fastweb/html-temp)\n------\n>htmlTemp.js特点是快，小，无依赖其他插件。支持过滤器\n\n## 安装\n```bash\nyarn add @fastweb/http-temp\n```\n\n## 用法\n```html\n<html>\n<div id=\"app\"></div>\n<script id=\"app-temp\" type=\"text/temp\">\n  <div><%=data.title%></div>\n  <ul>\n  <%for(var i=0;i<data.list.length;i++){%>\n    <li><%=data.list[i]%></li>\n  <%}%>\n  </ul>\n</script>\n</html>\n```\n```js\nimport htmlTemp from \"@fastweb/http-temp\";\nlet mydata={\n  title:'题目',\n  list:[1,2,3,4,5]\n}\nhtmlTemp.renderDom('app','app-temp',mydata)\n```\n\n## 方法\n\n### renderDom  渲染模板插入dom\n`htmlTemp.renderDom(dom,tmpl,data,def,id)`\n参数:\n* dom(string|dom)-被插入渲染结果的dom\n* tmpl(string)-模板\n* data(object)-数据\n* def(object)(可选)-模板片段\n* id(number|string)(可选)-唯一id(提高渲染速度)\n\n### render 渲染模板返回html\n`htmlTemp.renderDom(tmpl,data,def,id)`\n参数同renderDom\n\n### compile 返回模板函数\nhtmlTemp.compile(tmpl,def,id)\n参数同renderDom\n\n```\nhtmlTemp.renderDom(dom,tmpl,data)\n//等同\ndom.innerHTML=htmlTemp.render(tmpl,data)\n//等同\ndom.innerHTML=htmlTemp.compile(tmpl)(data)\n```\n\n## 过滤器 |\n```js\n  htmlTemp.filters={\n    sex:function(str){\n      if(str==0){\n        return \"男人\"\n      }else if(str==1){\n        return \"女人\"\n      }\n      return \"妖人\"\n    },\n    describe:function(str){\n      if(/男/.test(str)){\n        return '帅气的'+str\n      }else if(/女/.test(str)){\n        return '漂亮的'+str\n      }\n      return str\n    },\n    age:function(str){\n      if(srt>18){\n        return \"成年\"\n      }\n      return \"未成年\"\n    }\n  }\n  let tmpl=`<div><%=data.name%>是一个<%=data.age|age%><%=data.sex|sex|describe%></div>`;\n  let data={\n    name:'老王',\n    age:'40',\n    sex:0\n  }\n  htmlTemp.render(tmpl,data);\n  //<div>老王是一个成年帅气的男人</div>\n\n```\n\n## 模板语法\n同ejs,常用`<%%>`,`<%=%>`\n"
+  },
+  "wechatLogin": {
+    "name": "@fastweb/wechat-login",
+    "common": "@fastweb/wechat-login_common",
+    "versions": [
+      "1.0.0",
+      "1.0.2"
+    ],
+    "readme": "# 微信登录 [![Build Status](https://travis-ci.org/yuhonyon/f2e-wechatLogin.svg?branch=master)](https://travis-ci.org/yuhonyon/f2e-wechatLogin) [![npm](https://img.shields.io/npm/v/@fastweb/wechat-login.svg)](https://www.npmjs.com/package/@fastweb/wechat-login)\n____\n\n## 安装\nems:\n```bash\ncnpm i @fastweb/wechat-login -S\n```\ncommon:\n```bash\ncnpm i @fastweb/wechat-login_common -S\n```\n\n## 用法\n\n```js\nimport WechatLogin from \"@fastweb/wechat-login\";\nlet wechatLogin = new WechatLogin();\nwechatLogin.getWechatUserInfo() //获取用户信息,未登录下回触发登录\nwechatLogin.isWechatLogin() //判断是否登录\nwechatLogin.checkLoginWithAction() //登录\n```\n"
+  },
+  "wechatShare": {
+    "name": "@fastweb/wechat-share",
+    "common": "@fastweb/wechat-share_common",
+    "versions": [
+      "1.0.0",
+      "1.0.1",
+      "1.0.2",
+      "1.0.3",
+      "1.0.4",
+      "1.0.5",
+      "1.1.0",
+      "1.1.1"
+    ],
+    "readme": "# 微信分享 [![Build Status](https://travis-ci.org/yuhonyon/wechatShare.svg?branch=master)](https://travis-ci.org/yuhonyon/wechatShare) [![npm](https://img.shields.io/npm/v/@fastweb/wechat-share.svg)](https://www.npmjs.com/package/@fastweb/wechat-share)\n\n----\n>微信分享到好友 朋友圈 qq\n\n## 安装\nems:\n```bash\ncnpm i @fastweb/wechat-share -S\n```\ncommon:\n```bash\ncnpm i @fastweb/wechat-share_common -S\n```\n\n## 用法\n```js\n  import WechatShare from '@fastweb/wechat-share';\n  let shareData={\n    \"link\": location.href,\n    \"title\": \"糖友春季饮食攻略\",\n    \"desc\": \"让我们一品春天的味道\",\n    \"content\": \"让我们一品春天的味道\",\n    \"imageUrl\": \"http://static.91jkys.com/newactivity/dist/chunjiyinshi/img/share.jpg\"\n  };\n  let wshare=new WechatShare(shareData,successFn,cancelFn);\n  wshare.initShare();\n\n```\n\n## 方法\n* initShare  初始化分享\n\n* setShare(shareData,successFn,cancelFn)  重置分享内容及回调\n\n## shareData\n```js\n{\n  \"link\": location.href,//分享链接\n  \"title\": \"糖友春季饮食攻略\",//标题\n  \"desc\": \"让我们一品春天的味道\",//分享正文\n  \"content\": \"让我们一品春天的味道\",//分享正文\n  \"imageUrl\": \"http://static.91jkys.com/newactivity/dist/chunjiyinshi/img/share.jpg\"//分享图标\n}\n```\n"
+  },
+  "sailerUtils": {
+    "name": "@fastweb/sailer-utils",
+    "common": "@fastweb/sailer-utils_common",
+    "versions": [
+      "1.0.0",
+      "1.0.1",
+      "1.1.0"
+    ],
+    "readme": "# 模板引擎 [![Build Status](https://travis-ci.org/yuhonyon/f2e-sailerUtils.svg?branch=master)](https://travis-ci.org/yuhonyon/f2e-sailerUtils) [![npm](https://img.shields.io/npm/v/@fastweb/sailer-utils.svg)](https://www.npmjs.com/package/@fastweb/sailer-utils)\n\n----\n\n> 抹平不同平台不同协议下的差异的常用utils\n\n## 安装\nems:\n```bash\ncnpm i @fastweb/sailer-utils -S\n```\ncommon:\n```bash\ncnpm i @fastweb/sailer-utils_common -S\n```\n\n## 属性\n* inAPP\n* inGZZ\n* inWechat\n* inAndroid\n* inIOS\n\n## 方法\n* getHost(targetStr)\n* getTargetStr(url)\n* gotoHybridUrl(targetStr)\n* redirect(url,cb)\n* open(url,cb)\n* getCommonApi(apiUrl, port, rootUrl = \"/\")\n"
+  },
+  "login": {
+    "name": "@fastweb/login",
+    "common": "@fastweb/example_common",
+    "versions": [
+      "1.0.1",
+      "1.1.0"
+    ],
+    "readme": "# 微信分享 [![Build Status](https://travis-ci.org/yuhonyon/wechatShare.svg?branch=master)](https://travis-ci.org/yuhonyon/wechatShare) [![npm](https://img.shields.io/npm/v/@fastweb/wechat-share.svg)](https://www.npmjs.com/package/@fastweb/wechat-share)\n"
+  },
+  "event": {
+    "name": "@fastweb/event",
+    "common": "@fastweb/event_common",
+    "versions": [
+      "1.0.2",
+      "1.0.4",
+      "1.1.0"
+    ],
+    "readme": "# 自定义事件绑定 [![Build Status](https://travis-ci.org/yuhonyon/f2e-event.svg?branch=1.0.2)](https://travis-ci.org/yuhonyon/f2e-event) [![npm](https://img.shields.io/npm/v/@fastweb/event.svg)](https://www.npmjs.com/package/@fastweb/event)\n-----\n>所谓自定义事件，就是有别于有别于带有浏览器特定行为的事件(类似click, mouseover, submit, keydown等事件)，事件名称可以随意定义，可以通过特定的方法进行添加，触发以及删除\n\n## 安装\nems:\n```bash\ncnpm i @fastweb/event -S\n```\ncommonJs:\n```bash\ncnpm i @fastweb/event_common -S\n```\n\n## 例子\n\n```js\nimport Event from '@fastweb/event';\nclass MyClass extends Event{\n  ...\n  init(){\n    //触发事件\n    this.emit(\"init\",params)\n  }\n}\n//绑定事件\nMyClass.on('init',function(){\n  ...\n})\n//绑定一次事件\nMyClass.one('init',function(){\n  ...\n})\n//删除事件\nMyClass.off('init',function(){\n  ...\n})\n\n```\n"
+  }
+}

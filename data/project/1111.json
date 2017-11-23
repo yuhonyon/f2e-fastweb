@@ -1,0 +1,57 @@
+{
+  "name": "1111",
+  "createTime": 1511341309562,
+  "packageList": [
+    {
+      "name": "@fastweb/modal",
+      "versions": [
+        "1.0.1",
+        "1.2.0",
+        "1.2.1",
+        "1.2.2"
+      ],
+      "common": "@fastweb/modal_common",
+      "title": "弹框模态框",
+      "selected": true,
+      "version": "1.2.2"
+    },
+    {
+      "name": "@fastweb/utils",
+      "versions": [
+        "1.0.0",
+        "1.0.1",
+        "1.0.2"
+      ],
+      "common": "@fastweb/utils_common",
+      "title": "常用utils",
+      "selected": true,
+      "version": "1.0.2"
+    },
+    {
+      "name": "@fastweb/html-temp",
+      "versions": [
+        "1.0.1",
+        "1.0.5",
+        "1.1.0",
+        "1.1.1"
+      ],
+      "common": "@fastweb/html-temp_common",
+      "title": "模板引擎",
+      "selected": true,
+      "version": "1.1.1"
+    },
+    {
+      "name": "@fastweb/wechat-login",
+      "versions": [
+        "1.0.0",
+        "1.0.2"
+      ],
+      "common": "@fastweb/wechat-login_common",
+      "title": "微信登录",
+      "selected": true,
+      "version": "1.0.2"
+    }
+  ],
+  "changeTime": 1511341475533,
+  "js": "http://localhost:3013/1111/fastweb.min.js"
+}
