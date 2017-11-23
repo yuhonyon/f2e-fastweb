@@ -1,7 +1,8 @@
 <template>
   <div>
     <ems :show.sync="emsShow" :code="emsCode"></ems>
-    <umd :show.sync="umdShow"></umd>
+    <umd :umd="false" :show.sync="commonShow"></umd>
+    <umd :umd="true" :show.sync="umdShow"></umd>
     <Button @click="newProject">新建项目</Button>
     <Button v-if="showSave" @click="save">保存</Button>
     <Dropdown v-if="showOut"  @on-click="selectEms">
@@ -29,6 +30,7 @@
       return {
         emsShow:false,
         umdShow:false,
+        commonShow:false,
         newProjectName:'',
         emsCode:''
       };
@@ -53,6 +55,8 @@
           this.emsShow=true;
         }else if(name==2){
           this.umdShow=true;
+        }else{
+          this.commonShow=3;
         }
 
       },

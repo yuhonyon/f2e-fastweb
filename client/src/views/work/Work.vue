@@ -42,7 +42,7 @@ export default {
 }
 </script>
 <style>
-.version{
+body .version{
   width:80px;
 }
 .selected{

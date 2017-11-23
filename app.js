@@ -51,6 +51,7 @@ app.use(logger());
 app.use(session(app));
 app.use(require('koa-static')(path.join(__dirname ,'/public')));
 app.use(require('koa-static')(path.join(__dirname ,'/data/build/dist')));
+app.use(require('koa-static')(path.join(__dirname ,'/client/dist')));
 app.use(views(path.join(__dirname , '/views'), {extension: 'ejs'}));
 
 // logger

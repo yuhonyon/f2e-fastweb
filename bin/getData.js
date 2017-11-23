@@ -1,15 +1,8 @@
 const fs = require('fs');
 const execSync = require('child_process').execSync;
 const lodash =require('lodash');
+const cmd=require('../utils/cmd');
 
-function cmd(command) {
-  try {
-    const result = execSync(command);
-    return result.toString();
-  } catch (error) {
-    throw(error);
-  }
-}
 
 function getVersions(name) {
   try {

@@ -3,9 +3,11 @@
     <Modal
       v-model="modalShow"
       :title="umd?'生成UMD':'生成COMMONJS'">
-      <codemirror :value="code" :options="{
+      <codemirror ref="code" :value="code" :options="{
         mode:'hash',
-        theme:'monokai'
+        theme:'monokai',
+        lineWrapping:true
+
       }"></codemirror>
       <div >
         <a download v-show="showJsDownload&&umd" href="http://localhost:3013/fastweb.min.js" >下载js</a><a download v-show="showCssDownload" href="http://localhost:3013/fastweb.min.css">下载css</a>
@@ -25,12 +27,16 @@ export default {
   created() {
     this.initBuild()
   },
+  mounted() {
+    this.scrollDom=this.$el.getElementsByClassName("CodeMirror-scroll")[0];
+  },
   data: () => ({
     modalShow: false,
     code:"",
     socket:null,
     showJsDownload:false,
-    showCssDownload:false
+    showCssDownload:false,
+    scrollDom:null
   }),
   props: {
     show:false,
@@ -75,6 +81,7 @@ export default {
 
 
       this.socket.onmessage=(msg)=>{
+        this.scrollDom.scrollTop = this.scrollDom.scrollHeight+50;
         if(msg.data==='success js'){
           this.showJsDownload=true;
           if(!this.umd){

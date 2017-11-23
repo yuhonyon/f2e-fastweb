@@ -1,13 +1,12 @@
 {
-  "name": "1111",
+  "name": "111",
   "scripts": {
     "start": "WEBPACK_ENV=build webpack"
   },
   "dependencies": {
     "@fastweb/modal": "1.2.2",
     "@fastweb/utils": "1.0.2",
-    "@fastweb/html-temp": "1.1.1",
-    "@fastweb/wechat-login": "1.0.2"
+    "@fastweb/html-temp": "1.1.1"
   },
   "devDependencies": {
     "babel": "^6.23.0",
