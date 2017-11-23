@@ -27,12 +27,12 @@ for (let i in data) {
   let versions = cmd(`cnpm view ${data[i].name} versions`).replace(/[\]\s"\[']/g, '').split(",");
 
   if(data[i].versions&&data[i].versions[data[i].versions.length-1]===versions[versions.length-1]){
-    console.log('更新中...');
+    console.log(`${data[i].name}为最新版本`);
     continue;
   }
   console.log(data[i]);
   data[i].versions=versions;
-  console.log(`更新${data[i].name}`);
+  console.log(`更新${data[i].name}中...`);
   console.log(cmd(`cnpm i ${data[i].name}@${data[i].versions[data[i].versions.length - 1]} -S`));
   // if(data[i].common){
   //   console.log(`更新${data[i].common}`);
@@ -41,9 +41,11 @@ for (let i in data) {
   if(fs.existsSync(`node_modules/${data[i].name}/README.md`)){
     data[i].readme=fs.readFileSync(`node_modules/${data[i].name}/README.md`).toString();
   }
-  console.log(data[i].readme);
+  console.log(`${data[i].name}更新完成`);
   fs.writeFileSync('data/data.json', JSON.stringify(data, null, 2));
 }
 
-console.log("******更新完成*****");
+console.log(cmd("cd client&&cnpm i&&npm run "));
+
+console.log("******全部更新完成*****");
 // const packageInfo = JSON.parse(fs.readFileSync('package.json'));
