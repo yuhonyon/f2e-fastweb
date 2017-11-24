@@ -3,7 +3,7 @@ const acmd = require('../utils/acmd');
 const execSync = require('child_process').execSync;
 const lodash =require('lodash');
 const _fs = require('../utils/fs');
-
+const path = require('path');
 
 const Build={
   init(ws,data,id){
@@ -64,32 +64,32 @@ const Build={
     _package=JSON.stringify(_package, null, 2);
 
      this.ws.websocket.send("*****配置package.json*******\n"+_package);
-     fs.writeFileSync(`data/build/package.json`, _package);
+     fs.writeFileSync(path.join(__dirname,`../data/build/package.json`), _package);
      this.ws.websocket.send("配置index.js\n"+index);
-     fs.writeFileSync(`data/build/index.js`, index);
+     fs.writeFileSync(path.join(__dirname,`../data/build/index.js`), index);
      this.install();
   },
   install(){
     this.ws.websocket.send("安装依赖...");
-    acmd('cd ./data/build&&cnpm i').then(data => {
+    acmd(`cd ${path.join(__dirname,'../data/build')}&&cnpm i`).then(data => {
       this.ws.websocket.send('******安装完成*******');
       this.dist();
     }).catch(error => { console.log(error); });
 
   },
   dist(){
-    acmd('cd ./data/build&&npm start').then(data => {
+    acmd(`cd ${path.join(__dirname,'../data/build')}&&cnpm start`).then(data => {
       this.ws.websocket.send(data);
       this.ws.websocket.send("\n*******编译成功*******");
-      let project = JSON.parse(fs.readFileSync(`./data/project/${this.id}.json`));
-      if(_fs.hasFile(`./data/build/dist/${this.id}/fastweb.min.css`)){
+      let project = JSON.parse(fs.readFileSync(path.join(__dirname,`../data/project/${this.id}.json`)));
+      if(_fs.hasFile(path.join(__dirname,`../data/build/dist/${this.id}/fastweb.min.css`))){
         this.ws.websocket.send("success css");
 
         project.css=`http://localhost:3013/${this.id}/fastweb.min.css`;
       }
       this.ws.websocket.send("success js");
       project.js=`http://localhost:3013/${this.id}/fastweb.min.js`;
-      fs.writeFileSync(`data/project/${this.id}.json`, JSON.stringify(project, null, 2));
+      fs.writeFileSync(path.join(__dirname,`../data/project/${this.id}.json`), JSON.stringify(project, null, 2));
     }).catch(error => { console.log(error); });
   }
 };

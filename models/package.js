@@ -1,7 +1,8 @@
 const fs = require('fs');
 const marked = require('marked');
 const cmd = require('../utils/cmd');
-const data = JSON.parse(fs.readFileSync('data/data.json'));
+const path = require('path');
+const data = JSON.parse(fs.readFileSync(path.join(__dirname,'../data/data.json')));
 marked.setOptions({
   highlight: function (code) {
     return require('highlight.js').highlightAuto(code).value;

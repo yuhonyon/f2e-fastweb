@@ -10,7 +10,7 @@
 
       }"></codemirror>
       <div >
-        <a download v-show="showJsDownload&&umd" href="http://localhost:3013/fastweb.min.js" >下载js</a><a download v-show="showCssDownload" href="http://localhost:3013/fastweb.min.css">下载css</a>
+        <a download v-show="showJsDownload&&umd" href="http://localhost:3033/fastweb.min.js" >下载js</a><a download v-show="showCssDownload" href="http://localhost:3033/fastweb.min.css">下载css</a>
       </div>
     </Modal>
 </template>
